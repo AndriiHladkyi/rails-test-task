@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+<p>
+  <strong>Posts:</strong>
+  <%= pluralize(@category.posts.count, 'Post') %>
+
+  <ul>
+    <% @category.posts.each do |p| %>
+      <li><%= link_to p.title, post_path(p) %></li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Create new post', new_post_path %> |
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
